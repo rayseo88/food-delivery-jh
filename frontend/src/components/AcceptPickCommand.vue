@@ -2,7 +2,7 @@
 
     <v-card outlined>
         <v-card-title>
-            Pay
+            AcceptPick
         </v-card-title>
 
         <v-card-text>
@@ -13,9 +13,9 @@
             <v-btn
                     color="deep-purple lighten-2"
                     text
-                    @click="pay"
+                    @click="acceptPick"
             >
-                Pay
+                AcceptPick
             </v-btn>
             
             <v-btn
@@ -33,7 +33,7 @@
 <script>
    
     export default {
-        name: 'PayCommand',
+        name: 'AcceptPickCommand',
         components:{},
         props: {},
         data: () => ({
@@ -45,8 +45,8 @@
         watch: {
         },
         methods: {
-            pay() {
-                this.$emit('pay', this.value);
+            acceptPick() {
+                this.$emit('acceptPick', this.value);
             },
             close() {
                 this.$emit('closeDialog');

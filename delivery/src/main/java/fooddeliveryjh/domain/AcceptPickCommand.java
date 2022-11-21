@@ -6,7 +6,7 @@ import java.util.Date;
 import lombok.Data;
 
 @Data
-public class AcceptCommand {
+public class AcceptPickCommand {
 
 
 

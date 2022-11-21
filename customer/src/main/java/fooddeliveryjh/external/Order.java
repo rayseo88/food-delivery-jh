@@ -3,12 +3,12 @@ package fooddeliveryjh.external;
 import lombok.Data;
 import java.util.Date;
 @Data
-public class Payment {
+public class Order {
 
     private Long id;
-    private Long foodId;
-    private Long customerid;
-    private String preference;
+    private String foodId;
+    private String customerId;
+    private String option;
     private Object address;
     private String status;
 }
