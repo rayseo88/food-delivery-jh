@@ -32,7 +32,7 @@ public class PolicyHandler{
 
 
         // Comments // 
-		//oderCanceled나 StoreReject로 결제 취소
+		//oderCanceled나 StoreReject로 결제 취소 - policy
 
         // Sample Logic //
         Payment.cancelPayment(event);
@@ -49,7 +49,7 @@ public class PolicyHandler{
 
 
         // Comments // 
-		//oderCanceled나 StoreReject로 결제 취소
+		//oderCanceled나 StoreReject로 결제 취소 - policy
 
         // Sample Logic //
         Payment.cancelPayment(event);
@@ -67,7 +67,7 @@ public class PolicyHandler{
 
 
         // Comments // 
-		//점주의 거절로 인한 주문 취소
+		//점주의 거절로 인한 주문 취소 - policy
 
         // Sample Logic //
         Order.cancel(event);
@@ -85,7 +85,7 @@ public class PolicyHandler{
 
 
         // Comments // 
-		//주문 상태 업데이트
+		//주문 상태 업데이트(주문접수/취소) - policy
 
         // Sample Logic //
         Order.updateStatus(event);
@@ -102,10 +102,27 @@ public class PolicyHandler{
 
 
         // Comments // 
-		//주문 상태 업데이트
+		//주문 상태 업데이트(주문접수/취소) - policy
 
         // Sample Logic //
         Order.updateStatus(event);
+        
+
+        
+
+    }
+
+    @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='OrderPlaced'")
+    public void wheneverOrderPlaced_Pay(@Payload OrderPlaced orderPlaced){
+
+        OrderPlaced event = orderPlaced;
+        System.out.println("\n\n##### listener Pay : " + orderPlaced + "\n\n");
+
+
+        
+
+        // Sample Logic //
+        Payment.pay(event);
         
 
         

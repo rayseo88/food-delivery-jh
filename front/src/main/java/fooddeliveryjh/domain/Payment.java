@@ -27,25 +27,7 @@ public class Payment  {
     
     
     
-    private Long foodId;
-    
-    
-    
-    
-    
-    private Long customerid;
-    
-    
-    
-    
-    
-    private String preference;
-    
-    
-    
-    @Embedded
-    
-    private Address address;
+    private Long orderId;
     
     
     
@@ -102,6 +84,27 @@ public class Payment  {
         /** Example 2:  finding and process
         
         repository().findById(orderCanceled.get???()).ifPresent(payment->{
+            
+            payment // do something
+            repository().save(payment);
+
+
+         });
+        */
+
+        
+    }
+    public static void pay(OrderPlaced orderPlaced){
+
+        /** Example 1:  new item 
+        Payment payment = new Payment();
+        repository().save(payment);
+
+        */
+
+        /** Example 2:  finding and process
+        
+        repository().findById(orderPlaced.get???()).ifPresent(payment->{
             
             payment // do something
             repository().save(payment);
