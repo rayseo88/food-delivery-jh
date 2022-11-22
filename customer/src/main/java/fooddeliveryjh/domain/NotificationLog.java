@@ -26,14 +26,18 @@ public class NotificationLog  {
         return notificationLogRepository;
     }
 
+
     public static void sendTalk(StoreAccepted storeAccepted){
+        fooddeliveryjh.external.Order order = CustomerApplication.applicationContext
+            .getBean(fooddeliveryjh.external.OrderService.class)
+            .getOrder(storeAccepted.getId());
 
         NotificationLog notificationLog = new NotificationLog();
-        
-        notificationLog.setMessage("주문접수");
+            notificationLog.setMessage("주문접수");
+            notificationLog.setCustomerId(order.getCustomerId());        
         repository().save(notificationLog);
-    
     }
+
     public static void sendTalk(StoreRejected storeRejected){
 
         NotificationLog notificationLog = new NotificationLog();

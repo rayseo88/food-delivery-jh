@@ -83,10 +83,11 @@ public class StoreOrder  {
     }
     public static void cancelAlarm(OrderCanceled orderCanceled){
 
-        repository().findById(orderCanceled.getId()).ifPresent(storeOrder->{
+        repository().findByOrderId(orderCanceled.getId()).ifPresent(storeOrder->{
             
             storeOrder.setStatus("주문취소됨");
             repository().save(storeOrder);
+        });
 
     }
     public static void updateStatus(Paid paid){

@@ -27,8 +27,9 @@ public class TopFoodViewHandler {
             // view 객체 생성
             TopFood topFood = new TopFood();
             // view 객체에 이벤트의 Value 를 set 함
-            topFood.setFooid(Long.valueOf(orderPlaced.getFoodId()));
-            topFood.setCount(count+1);
+            topFood.setFoodId(orderPlaced.getFoodId());
+            topFood.setCount(1L);
+            topFood.setId(orderPlaced.getId());
             // view 레파지 토리에 save
             topFoodRepository.save(topFood);
 
@@ -46,9 +47,10 @@ public class TopFoodViewHandler {
             Optional<TopFood> topFoodOptional = topFoodRepository.findById(scoreAdded.getOrderid());
 
             if( topFoodOptional.isPresent()) {
-                 TopFood topFood = topFoodOptional.get();
+.                 TopFood topFood = topFoodOptional.get();
             // view 객체에 이벤트의 eventDirectValue 를 set 함
-                topFood.setScore(total score / count);    
+                topFood.setScore(scoreAdded.getScore() + topFood.getScore());    
+                topFood.setCount(1L + topFood.getScore());
                 // view 레파지 토리에 save
                  topFoodRepository.save(topFood);
                 }

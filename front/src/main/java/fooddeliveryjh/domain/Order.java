@@ -69,7 +69,6 @@ public class Order  {
             order.setStatus("주문거부됨");
             repository().save(order);
 
-
          });
 
 
