@@ -9,7 +9,7 @@
                 <Number label="Count" v-model="item.count" :editMode="editMode" @change="change" />
             </div>
             <div>
-                <Number label="Score" v-model="item.score" :editMode="editMode" @change="change" />
+                <Number label="TotalScore" v-model="item.totalScore" :editMode="editMode" @change="change" />
             </div>
         </v-card-text>
 

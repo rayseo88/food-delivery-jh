@@ -68,6 +68,7 @@
                 [
                     { text: "id", value: "id" },
                     { text: "orderid", value: "orderid" },
+                    { text: "foodid", value: "foodid" },
                     { text: "score", value: "score" },
                 ],
             evaluation : [],
@@ -87,6 +88,7 @@
 
             this.newValue = {
                 'orderid': 0,
+                'foodid': '',
                 'score': 0,
             }
         },

@@ -69,7 +69,7 @@
             
             me.newValue = {
                 'count': 0,
-                'score': 0,
+                'totalScore': 0,
             }
         },
         methods:{

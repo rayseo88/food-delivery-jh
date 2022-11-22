@@ -11,6 +11,7 @@ public class GiveScoreCommand {
         @Id
         //@GeneratedValue(strategy=GenerationType.AUTO)
         private Long id;
+        private String foodid;
         private Long orderid;
         private Integer score;
 

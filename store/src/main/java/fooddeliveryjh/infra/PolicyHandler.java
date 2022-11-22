@@ -24,18 +24,18 @@ public class PolicyHandler{
     @StreamListener(KafkaProcessor.INPUT)
     public void whatever(@Payload String eventString){}
 
-    @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='Paid'")
-    public void wheneverPaid_주문목록에추가(@Payload Paid paid){
+    @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='OrderPlaced'")
+    public void wheneverOrderPlaced_AddCooklist(@Payload OrderPlaced orderPlaced){
 
-        Paid event = paid;
-        System.out.println("\n\n##### listener 주문목록에추가 : " + paid + "\n\n");
+        OrderPlaced event = orderPlaced;
+        System.out.println("\n\n##### listener AddCooklist : " + orderPlaced + "\n\n");
 
 
         // Comments // 
-		//주문목록에 추가
+		//주문시 스토어 주문목록에 추가 - policy
 
         // Sample Logic //
-        StoreOrder.주문목록에추가(event);
+        StoreOrder.addCooklist(event);
         
 
         
@@ -43,18 +43,18 @@ public class PolicyHandler{
     }
 
     @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='OrderCanceled'")
-    public void wheneverOrderCanceled_주문취소알림(@Payload OrderCanceled orderCanceled){
+    public void wheneverOrderCanceled_CancelAlarm(@Payload OrderCanceled orderCanceled){
 
         OrderCanceled event = orderCanceled;
-        System.out.println("\n\n##### listener 주문취소알림 : " + orderCanceled + "\n\n");
+        System.out.println("\n\n##### listener CancelAlarm : " + orderCanceled + "\n\n");
 
 
         // Comments // 
-		//OrderCanceled로 인한 주문 취소를 알림
+		//OrderCanceled로 인한 주문 취소를 알림 - policy
 		// 
 
         // Sample Logic //
-        StoreOrder.주문취소알림(event);
+        StoreOrder.cancelAlarm(event);
         
 
         
@@ -69,11 +69,29 @@ public class PolicyHandler{
 
 
         // Comments // 
-		//입력받은 점수로 평점을 계산하여 update함
+		//입력받은 점수로 평점을 계산하여 update함 - policy
 		// (최종 평점=(이전평점+평점)/count)
 
         // Sample Logic //
         Menu.addScore(event);
+        
+
+        
+
+    }
+
+    @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='Paid'")
+    public void wheneverPaid_UpdateStatus(@Payload Paid paid){
+
+        Paid event = paid;
+        System.out.println("\n\n##### listener UpdateStatus : " + paid + "\n\n");
+
+
+        // Comments // 
+		//결제 완료시 상태 update - policy
+
+        // Sample Logic //
+        StoreOrder.updateStatus(event);
         
 
         

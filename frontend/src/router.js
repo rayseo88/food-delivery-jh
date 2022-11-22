@@ -15,8 +15,6 @@ import StoreOrderDetail from "./components/listers/StoreOrderDetail"
 import MenuManager from "./components/listers/MenuCards"
 import MenuDetail from "./components/listers/MenuDetail"
 
-import TopFoodView from "./components/TopFoodView"
-import TopFoodViewDetail from "./components/TopFoodViewDetail"
 import DeliveryManager from "./components/listers/DeliveryCards"
 import DeliveryDetail from "./components/listers/DeliveryDetail"
 
@@ -27,6 +25,8 @@ import EvaluationDetail from "./components/listers/EvaluationDetail"
 
 import OrderStatusView from "./components/OrderStatusView"
 import OrderStatusViewDetail from "./components/OrderStatusViewDetail"
+import TopFoodView from "./components/TopFoodView"
+import TopFoodViewDetail from "./components/TopFoodViewDetail"
 
 export default new Router({
     // mode: 'history',
@@ -75,16 +75,6 @@ export default new Router({
             },
 
             {
-                path: '/topFoods',
-                name: 'TopFoodView',
-                component: TopFoodView
-            },
-            {
-                path: '/topFoods/:id',
-                name: 'TopFoodViewDetail',
-                component: TopFoodViewDetail
-            },
-            {
                 path: '/deliveries',
                 name: 'DeliveryManager',
                 component: DeliveryManager
@@ -125,6 +115,16 @@ export default new Router({
                 path: '/orderStatuses/:id',
                 name: 'OrderStatusViewDetail',
                 component: OrderStatusViewDetail
+            },
+            {
+                path: '/topFoods',
+                name: 'TopFoodView',
+                component: TopFoodView
+            },
+            {
+                path: '/topFoods/:id',
+                name: 'TopFoodViewDetail',
+                component: TopFoodViewDetail
             },
 
 

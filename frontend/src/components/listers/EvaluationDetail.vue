@@ -9,6 +9,9 @@
                 <Number label="Orderid" v-model="item.orderid" :editMode="editMode" @change="change" />
             </div>
             <div>
+                <String label="Foodid" v-model="item.foodid" :editMode="editMode" @change="change" />
+            </div>
+            <div>
                 <Number label="Score" v-model="item.score" :editMode="editMode" @change="change" />
             </div>
         </v-card-text>

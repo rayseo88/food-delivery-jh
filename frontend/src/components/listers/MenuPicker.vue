@@ -18,7 +18,7 @@
                                 Count :  {{item.count }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
-                                Score :  {{item.score }}
+                                TotalScore :  {{item.totalScore }}
                             </v-list-item-subtitle>
                         </v-list-item-content>
 

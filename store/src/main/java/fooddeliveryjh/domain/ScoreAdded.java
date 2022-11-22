@@ -10,6 +10,7 @@ public class ScoreAdded extends AbstractEvent {
 
     private Long id;
     private Long orderid;
+    private String foodid;
     private Integer score;
 }
 

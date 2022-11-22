@@ -68,7 +68,7 @@
                 [
                     { text: "id", value: "id" },
                     { text: "count", value: "count" },
-                    { text: "score", value: "score" },
+                    { text: "totalScore", value: "totalScore" },
                 ],
             menu : [],
             newValue: {},
@@ -87,7 +87,7 @@
 
             this.newValue = {
                 'count': 0,
-                'score': 0,
+                'totalScore': 0,
             }
         },
         methods: {

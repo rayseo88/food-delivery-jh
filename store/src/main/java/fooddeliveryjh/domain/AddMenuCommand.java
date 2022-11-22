@@ -6,7 +6,7 @@ import java.util.Date;
 import lombok.Data;
 
 @Data
-public class 메뉴추가Command {
+public class AddMenuCommand {
 
 
 

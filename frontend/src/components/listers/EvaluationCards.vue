@@ -69,6 +69,7 @@
             
             me.newValue = {
                 'orderid': 0,
+                'foodid': '',
                 'score': 0,
             }
         },

@@ -66,12 +66,33 @@ public class Delivery  {
 
 
 
-    public void accept(){
+    public void acceptPick(){
     }
     public void deliveryConfirm(){
     }
 
-    public static void delivery목록에추가(Cooked cooked){
+    public static void addDeliverylist(OrderPlaced orderPlaced){
+
+        /** Example 1:  new item 
+        Delivery delivery = new Delivery();
+        repository().save(delivery);
+
+        */
+
+        /** Example 2:  finding and process
+        
+        repository().findById(orderPlaced.get???()).ifPresent(delivery->{
+            
+            delivery // do something
+            repository().save(delivery);
+
+
+         });
+        */
+
+        
+    }
+    public static void updateStatus(Cooked cooked){
 
         /** Example 1:  new item 
         Delivery delivery = new Delivery();
@@ -82,6 +103,27 @@ public class Delivery  {
         /** Example 2:  finding and process
         
         repository().findById(cooked.get???()).ifPresent(delivery->{
+            
+            delivery // do something
+            repository().save(delivery);
+
+
+         });
+        */
+
+        
+    }
+    public static void updateStatus(CookStarted cookStarted){
+
+        /** Example 1:  new item 
+        Delivery delivery = new Delivery();
+        repository().save(delivery);
+
+        */
+
+        /** Example 2:  finding and process
+        
+        repository().findById(cookStarted.get???()).ifPresent(delivery->{
             
             delivery // do something
             repository().save(delivery);

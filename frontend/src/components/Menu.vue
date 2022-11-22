@@ -18,7 +18,7 @@
 
         <v-card-text>
             <Number label="Count" v-model="value.count" :editMode="editMode"/>
-            <Number label="Score" v-model="value.score" :editMode="editMode"/>
+            <Number label="TotalScore" v-model="value.totalScore" :editMode="editMode"/>
         </v-card-text>
 
         <v-card-actions>

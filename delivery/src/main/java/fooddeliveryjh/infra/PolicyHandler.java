@@ -23,25 +23,53 @@ public class PolicyHandler{
     @StreamListener(KafkaProcessor.INPUT)
     public void whatever(@Payload String eventString){}
 
-    @Autowired
-    fooddeliveryjh.external.OrderService orderService;
+    @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='OrderPlaced'")
+    public void wheneverOrderPlaced_AddDeliverylist(@Payload OrderPlaced orderPlaced){
 
-    @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='Cooked'")
-    public void wheneverCooked_Delivery목록에추가(@Payload Cooked cooked){
-
-        Cooked event = cooked;
-        System.out.println("\n\n##### listener Delivery목록에추가 : " + cooked + "\n\n");
-
-        // REST Request Sample
-        
-        // orderService.getOrder(/** mapping value needed */);
+        OrderPlaced event = orderPlaced;
+        System.out.println("\n\n##### listener AddDeliverylist : " + orderPlaced + "\n\n");
 
 
         // Comments // 
-		//delivery목록에 추가
+		//주문시 delivery목록에 추가  - policy
 
         // Sample Logic //
-        Delivery.delivery목록에추가(event);
+        Delivery.addDeliverylist(event);
+        
+
+        
+
+    }
+
+    @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='Cooked'")
+    public void wheneverCooked_UpdateStatus(@Payload Cooked cooked){
+
+        Cooked event = cooked;
+        System.out.println("\n\n##### listener UpdateStatus : " + cooked + "\n\n");
+
+
+        // Comments // 
+		//조리 완료 시 상태 update - policy
+
+        // Sample Logic //
+        Delivery.updateStatus(event);
+        
+
+        
+
+    }
+    @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='CookStarted'")
+    public void wheneverCookStarted_UpdateStatus(@Payload CookStarted cookStarted){
+
+        CookStarted event = cookStarted;
+        System.out.println("\n\n##### listener UpdateStatus : " + cookStarted + "\n\n");
+
+
+        // Comments // 
+		//조리 완료 시 상태 update - policy
+
+        // Sample Logic //
+        Delivery.updateStatus(event);
         
 
         

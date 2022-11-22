@@ -43,7 +43,7 @@ public class NotificationLog  {
 
 
 
-    public static void 카카오톡알림(StoreAccepted storeAccepted){
+    public static void sendTalk(StoreAccepted storeAccepted){
 
         /** Example 1:  new item 
         NotificationLog notificationLog = new NotificationLog();
@@ -64,7 +64,7 @@ public class NotificationLog  {
 
         
     }
-    public static void 카카오톡알림(StoreRejected storeRejected){
+    public static void sendTalk(StoreRejected storeRejected){
 
         /** Example 1:  new item 
         NotificationLog notificationLog = new NotificationLog();
@@ -85,28 +85,7 @@ public class NotificationLog  {
 
         
     }
-    public static void 카카오톡알림(Cooked cooked){
-
-        /** Example 1:  new item 
-        NotificationLog notificationLog = new NotificationLog();
-        repository().save(notificationLog);
-
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(cooked.get???()).ifPresent(notificationLog->{
-            
-            notificationLog // do something
-            repository().save(notificationLog);
-
-
-         });
-        */
-
-        
-    }
-    public static void 카카오톡알림(Paid paid){
+    public static void sendTalk(Paid paid){
 
         /** Example 1:  new item 
         NotificationLog notificationLog = new NotificationLog();
@@ -127,7 +106,7 @@ public class NotificationLog  {
 
         
     }
-    public static void 카카오톡알림(OrderPlaced orderPlaced){
+    public static void sendTalk(OrderPlaced orderPlaced){
 
         /** Example 1:  new item 
         NotificationLog notificationLog = new NotificationLog();
@@ -148,7 +127,7 @@ public class NotificationLog  {
 
         
     }
-    public static void 카카오톡알림(DeliveryStarted deliveryStarted){
+    public static void sendTalk(DeliveryStarted deliveryStarted){
 
         /** Example 1:  new item 
         NotificationLog notificationLog = new NotificationLog();
@@ -159,6 +138,48 @@ public class NotificationLog  {
         /** Example 2:  finding and process
         
         repository().findById(deliveryStarted.get???()).ifPresent(notificationLog->{
+            
+            notificationLog // do something
+            repository().save(notificationLog);
+
+
+         });
+        */
+
+        
+    }
+    public static void sendTalk(CookStarted cookStarted){
+
+        /** Example 1:  new item 
+        NotificationLog notificationLog = new NotificationLog();
+        repository().save(notificationLog);
+
+        */
+
+        /** Example 2:  finding and process
+        
+        repository().findById(cookStarted.get???()).ifPresent(notificationLog->{
+            
+            notificationLog // do something
+            repository().save(notificationLog);
+
+
+         });
+        */
+
+        
+    }
+    public static void sendTalk(Cooked cooked){
+
+        /** Example 1:  new item 
+        NotificationLog notificationLog = new NotificationLog();
+        repository().save(notificationLog);
+
+        */
+
+        /** Example 2:  finding and process
+        
+        repository().findById(cooked.get???()).ifPresent(notificationLog->{
             
             notificationLog // do something
             repository().save(notificationLog);

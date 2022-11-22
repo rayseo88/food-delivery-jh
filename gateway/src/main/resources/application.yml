@@ -15,7 +15,7 @@ spring:
         - id: store
           uri: http://localhost:8082
           predicates:
-            - Path=/storeOrders/**, /menus/**, /topFoods/**
+            - Path=/storeOrders/**, /menus/**, 
         - id: delivery
           uri: http://localhost:8083
           predicates:
@@ -23,7 +23,7 @@ spring:
         - id: customer
           uri: http://localhost:8084
           predicates:
-            - Path=/notificationLogs/**, /evaluations/**, /orderStatuses/**
+            - Path=/notificationLogs/**, /evaluations/**, /orderStatuses/**, /topFoods/**
         - id: frontend
           uri: http://localhost:8080
           predicates:
@@ -54,7 +54,7 @@ spring:
         - id: store
           uri: http://store:8080
           predicates:
-            - Path=/storeOrders/**, /menus/**, /topFoods/**
+            - Path=/storeOrders/**, /menus/**, 
         - id: delivery
           uri: http://delivery:8080
           predicates:
@@ -62,7 +62,7 @@ spring:
         - id: customer
           uri: http://customer:8080
           predicates:
-            - Path=/notificationLogs/**, /evaluations/**, /orderStatuses/**
+            - Path=/notificationLogs/**, /evaluations/**, /orderStatuses/**, /topFoods/**
         - id: frontend
           uri: http://frontend:8080
           predicates:

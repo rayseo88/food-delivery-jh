@@ -18,6 +18,9 @@
                                 Orderid :  {{item.orderid }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
+                                Foodid :  {{item.foodid }}
+                            </v-list-item-subtitle>
+                            <v-list-item-subtitle>
                                 Score :  {{item.score }}
                             </v-list-item-subtitle>
                         </v-list-item-content>
@@ -71,6 +74,8 @@
                 if(val != undefined) {
                     var arr = this.list[val]._links.self.href.split('/');
                     obj['id'] = arr[4]; 
+                    
+                    
                     
                     
                     

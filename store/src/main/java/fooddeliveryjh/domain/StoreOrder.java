@@ -3,6 +3,7 @@ package fooddeliveryjh.domain;
 import fooddeliveryjh.domain.Cooked;
 import fooddeliveryjh.domain.StoreAccepted;
 import fooddeliveryjh.domain.StoreRejected;
+import fooddeliveryjh.domain.CookStarted;
 import fooddeliveryjh.StoreApplication;
 import javax.persistence.*;
 import java.util.List;
@@ -35,25 +36,25 @@ public class StoreOrder  {
     
     
     
-    private String preference;
-    
-    
-    
-    
-    
     private Long orderId;
     
     
     
     
     
-    private String status;
+    private String option;
     
     
     
     @Embedded
     
     private Address address;
+    
+    
+    
+    
+    
+    private String status;
 
     @PostPersist
     public void onPostPersist(){
@@ -71,6 +72,11 @@ public class StoreOrder  {
 
         StoreRejected storeRejected = new StoreRejected(this);
         storeRejected.publishAfterCommit();
+
+
+
+        CookStarted cookStarted = new CookStarted(this);
+        cookStarted.publishAfterCommit();
 
     }
 
@@ -90,7 +96,7 @@ public class StoreOrder  {
     public void startCook(){
     }
 
-    public static void 주문목록에추가(Paid paid){
+    public static void addCooklist(OrderPlaced orderPlaced){
 
         /** Example 1:  new item 
         StoreOrder storeOrder = new StoreOrder();
@@ -100,7 +106,7 @@ public class StoreOrder  {
 
         /** Example 2:  finding and process
         
-        repository().findById(paid.get???()).ifPresent(storeOrder->{
+        repository().findById(orderPlaced.get???()).ifPresent(storeOrder->{
             
             storeOrder // do something
             repository().save(storeOrder);
@@ -111,7 +117,7 @@ public class StoreOrder  {
 
         
     }
-    public static void 주문취소알림(OrderCanceled orderCanceled){
+    public static void cancelAlarm(OrderCanceled orderCanceled){
 
         /** Example 1:  new item 
         StoreOrder storeOrder = new StoreOrder();
@@ -122,6 +128,27 @@ public class StoreOrder  {
         /** Example 2:  finding and process
         
         repository().findById(orderCanceled.get???()).ifPresent(storeOrder->{
+            
+            storeOrder // do something
+            repository().save(storeOrder);
+
+
+         });
+        */
+
+        
+    }
+    public static void updateStatus(Paid paid){
+
+        /** Example 1:  new item 
+        StoreOrder storeOrder = new StoreOrder();
+        repository().save(storeOrder);
+
+        */
+
+        /** Example 2:  finding and process
+        
+        repository().findById(paid.get???()).ifPresent(storeOrder->{
             
             storeOrder // do something
             repository().save(storeOrder);

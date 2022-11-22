@@ -33,6 +33,12 @@ public class Evaluation  {
     
     
     
+    private String foodid;
+    
+    
+    
+    
+    
     private Integer score;
 
     @PostPersist

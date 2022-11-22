@@ -20,7 +20,7 @@ public class Menu  {
     
     
     
-    private Long id;
+    private String id;
     
     
     
@@ -32,10 +32,10 @@ public class Menu  {
     
     
     
-    private Float score;
+    private Long totalScore;
 
-    @PostPersist
-    public void onPostPersist(){
+    @PrePersist
+    public void onPrePersist(){
     }
 
     public static MenuRepository repository(){

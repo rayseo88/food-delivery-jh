@@ -17,7 +17,7 @@
                         <v-list-item-subtitle style="font-size:25px; font-weight:700;">
                             [ Id :  {{data.id }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ Count :  {{data.count }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ Score :  {{data.score }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ TotalScore :  {{data.totalScore }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </v-list-item-subtitle>
 
                     </v-list-item-content>
@@ -100,7 +100,7 @@
             
             this.newValue = {
                 'count': 0,
-                'score': 0,
+                'totalScore': 0,
             }
         },
         methods: {

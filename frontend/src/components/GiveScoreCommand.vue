@@ -7,6 +7,7 @@
 
         <v-card-text>
             <Number label="Id" v-model="value.id" :editMode="editMode"/>
+            <String label="Foodid" v-model="value.foodid" :editMode="editMode"/>
             <Number label="Orderid" v-model="value.orderid" :editMode="editMode"/>
             <Number label="Score" v-model="value.score" :editMode="editMode"/>
         </v-card-text>
@@ -45,6 +46,7 @@
         }),
         created() {
             this.value.id = 0;
+            this.value.foodid = '';
             this.value.orderid = 0;
             this.value.score = 0;
         },

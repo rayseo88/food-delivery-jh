@@ -2,7 +2,7 @@
 
     <v-card outlined>
         <v-card-title>
-            메뉴추가
+            AddMenu
         </v-card-title>
 
         <v-card-text>
@@ -13,9 +13,9 @@
             <v-btn
                     color="deep-purple lighten-2"
                     text
-                    @click="메뉴추가"
+                    @click="addMenu"
             >
-                메뉴추가
+                AddMenu
             </v-btn>
             
             <v-btn
@@ -33,7 +33,7 @@
 <script>
    
     export default {
-        name: '메뉴추가Command',
+        name: 'AddMenuCommand',
         components:{},
         props: {},
         data: () => ({
@@ -45,8 +45,8 @@
         watch: {
         },
         methods: {
-            메뉴추가() {
-                this.$emit('메뉴추가', this.value);
+            addMenu() {
+                this.$emit('addMenu', this.value);
             },
             close() {
                 this.$emit('closeDialog');

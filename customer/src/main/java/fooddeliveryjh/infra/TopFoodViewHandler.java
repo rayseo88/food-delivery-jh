@@ -48,7 +48,7 @@ public class TopFoodViewHandler {
             if( topFoodOptional.isPresent()) {
                  TopFood topFood = topFoodOptional.get();
             // view 객체에 이벤트의 eventDirectValue 를 set 함
-                topFood.setScore(score / count);    
+                topFood.setScore(total score / count);    
                 // view 레파지 토리에 save
                  topFoodRepository.save(topFood);
                 }

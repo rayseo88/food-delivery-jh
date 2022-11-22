@@ -24,103 +24,151 @@ public class PolicyHandler{
     @StreamListener(KafkaProcessor.INPUT)
     public void whatever(@Payload String eventString){}
 
+    @Autowired
+    fooddeliveryjh.external.OrderService orderService;
+
     @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='StoreAccepted'")
-    public void wheneverStoreAccepted_카카오톡알림(@Payload StoreAccepted storeAccepted){
+    public void wheneverStoreAccepted_SendTalk(@Payload StoreAccepted storeAccepted){
 
         StoreAccepted event = storeAccepted;
-        System.out.println("\n\n##### listener 카카오톡알림 : " + storeAccepted + "\n\n");
+        System.out.println("\n\n##### listener SendTalk : " + storeAccepted + "\n\n");
+
+        // REST Request Sample
+        
+        // orderService.getOrder(/** mapping value needed */);
 
 
         // Comments // 
-		//카카오톡 알림
+		//카카오톡 알림 - policy
 
         // Sample Logic //
-        NotificationLog.카카오톡알림(event);
+        NotificationLog.sendTalk(event);
         
 
         
 
     }
     @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='StoreRejected'")
-    public void wheneverStoreRejected_카카오톡알림(@Payload StoreRejected storeRejected){
+    public void wheneverStoreRejected_SendTalk(@Payload StoreRejected storeRejected){
 
         StoreRejected event = storeRejected;
-        System.out.println("\n\n##### listener 카카오톡알림 : " + storeRejected + "\n\n");
+        System.out.println("\n\n##### listener SendTalk : " + storeRejected + "\n\n");
+
+        // REST Request Sample
+        
+        // orderService.getOrder(/** mapping value needed */);
 
 
         // Comments // 
-		//카카오톡 알림
+		//카카오톡 알림 - policy
 
         // Sample Logic //
-        NotificationLog.카카오톡알림(event);
-        
-
-        
-
-    }
-    @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='Cooked'")
-    public void wheneverCooked_카카오톡알림(@Payload Cooked cooked){
-
-        Cooked event = cooked;
-        System.out.println("\n\n##### listener 카카오톡알림 : " + cooked + "\n\n");
-
-
-        // Comments // 
-		//카카오톡 알림
-
-        // Sample Logic //
-        NotificationLog.카카오톡알림(event);
+        NotificationLog.sendTalk(event);
         
 
         
 
     }
     @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='Paid'")
-    public void wheneverPaid_카카오톡알림(@Payload Paid paid){
+    public void wheneverPaid_SendTalk(@Payload Paid paid){
 
         Paid event = paid;
-        System.out.println("\n\n##### listener 카카오톡알림 : " + paid + "\n\n");
+        System.out.println("\n\n##### listener SendTalk : " + paid + "\n\n");
+
+        // REST Request Sample
+        
+        // orderService.getOrder(/** mapping value needed */);
 
 
         // Comments // 
-		//카카오톡 알림
+		//카카오톡 알림 - policy
 
         // Sample Logic //
-        NotificationLog.카카오톡알림(event);
+        NotificationLog.sendTalk(event);
         
 
         
 
     }
     @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='OrderPlaced'")
-    public void wheneverOrderPlaced_카카오톡알림(@Payload OrderPlaced orderPlaced){
+    public void wheneverOrderPlaced_SendTalk(@Payload OrderPlaced orderPlaced){
 
         OrderPlaced event = orderPlaced;
-        System.out.println("\n\n##### listener 카카오톡알림 : " + orderPlaced + "\n\n");
+        System.out.println("\n\n##### listener SendTalk : " + orderPlaced + "\n\n");
+
+        // REST Request Sample
+        
+        // orderService.getOrder(/** mapping value needed */);
 
 
         // Comments // 
-		//카카오톡 알림
+		//카카오톡 알림 - policy
 
         // Sample Logic //
-        NotificationLog.카카오톡알림(event);
+        NotificationLog.sendTalk(event);
         
 
         
 
     }
     @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='DeliveryStarted'")
-    public void wheneverDeliveryStarted_카카오톡알림(@Payload DeliveryStarted deliveryStarted){
+    public void wheneverDeliveryStarted_SendTalk(@Payload DeliveryStarted deliveryStarted){
 
         DeliveryStarted event = deliveryStarted;
-        System.out.println("\n\n##### listener 카카오톡알림 : " + deliveryStarted + "\n\n");
+        System.out.println("\n\n##### listener SendTalk : " + deliveryStarted + "\n\n");
+
+        // REST Request Sample
+        
+        // orderService.getOrder(/** mapping value needed */);
 
 
         // Comments // 
-		//카카오톡 알림
+		//카카오톡 알림 - policy
 
         // Sample Logic //
-        NotificationLog.카카오톡알림(event);
+        NotificationLog.sendTalk(event);
+        
+
+        
+
+    }
+    @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='CookStarted'")
+    public void wheneverCookStarted_SendTalk(@Payload CookStarted cookStarted){
+
+        CookStarted event = cookStarted;
+        System.out.println("\n\n##### listener SendTalk : " + cookStarted + "\n\n");
+
+        // REST Request Sample
+        
+        // orderService.getOrder(/** mapping value needed */);
+
+
+        // Comments // 
+		//카카오톡 알림 - policy
+
+        // Sample Logic //
+        NotificationLog.sendTalk(event);
+        
+
+        
+
+    }
+    @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='Cooked'")
+    public void wheneverCooked_SendTalk(@Payload Cooked cooked){
+
+        Cooked event = cooked;
+        System.out.println("\n\n##### listener SendTalk : " + cooked + "\n\n");
+
+        // REST Request Sample
+        
+        // orderService.getOrder(/** mapping value needed */);
+
+
+        // Comments // 
+		//카카오톡 알림 - policy
+
+        // Sample Logic //
+        NotificationLog.sendTalk(event);
         
 
         
@@ -135,7 +183,7 @@ public class PolicyHandler{
 
 
         // Comments // 
-		//배송 완료로 인한 스코어 등록 준비
+		//배송 완료로 인한 스코어 등록 준비 - policy
 
         // Sample Logic //
         Evaluation.requestScore(event);
