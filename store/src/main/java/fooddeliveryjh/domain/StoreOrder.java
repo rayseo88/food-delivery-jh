@@ -98,11 +98,15 @@ public class StoreOrder  {
 
     public static void addCooklist(OrderPlaced orderPlaced){
 
-        /** Example 1:  new item 
+        /** Example 1:  new item */
         StoreOrder storeOrder = new StoreOrder();
+        StoreOrder.setCustomerID(orderPlaced.getCustomerID());
+        StoreOrder.setFoodID(orderPlaced.getFoodID());
+        StoreOrder.setOrderID(String.valueOf(orderPlaced.getId()));
+        StoreOrder.setStatus(status: "미결제");
         repository().save(storeOrder);
 
-        */
+        
 
         /** Example 2:  finding and process
         
@@ -146,16 +150,16 @@ public class StoreOrder  {
 
         */
 
-        /** Example 2:  finding and process
+        /** Example 2:  finding and process */
         
-        repository().findById(paid.get???()).ifPresent(storeOrder->{
+        repository().findByOrderId(paid.getOrderId()).ifPresent(storeOrder->{
             
-            storeOrder // do something
+            storeOrder.setStatus("결재됨") // do something
             repository().save(storeOrder);
 
 
          });
-        */
+        
 
         
     }

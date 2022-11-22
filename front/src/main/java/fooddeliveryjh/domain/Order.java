@@ -18,39 +18,16 @@ public class Order  {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     
-    
-    
-    
-    
     private Long id;
-    
-    
-    
-    
     
     private String foodId;
     
-    
-    
-    
-    
     private String customerId;
     
-    
-    
-    
-    
-    private String option;
-    
-    
+    private String option
     
     @Embedded
-    
     private Address address;
-    
-    
-    
-    
     
     private String status;
 
