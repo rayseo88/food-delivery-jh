@@ -18,6 +18,4 @@ public class NotificationLogController {
     @Autowired
     NotificationLogRepository notificationLogRepository;
 
-
-
 }

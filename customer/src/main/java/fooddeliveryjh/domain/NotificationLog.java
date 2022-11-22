@@ -26,15 +26,13 @@ public class NotificationLog  {
         return notificationLogRepository;
     }
 
-
     public static void sendTalk(StoreAccepted storeAccepted){
 
         NotificationLog notificationLog = new NotificationLog();
         
         notificationLog.setMessage("주문접수");
         repository().save(notificationLog);
-
-        
+    
     }
     public static void sendTalk(StoreRejected storeRejected){
 
@@ -73,8 +71,6 @@ public class NotificationLog  {
         
         notificationLog.setMessage("조리시작");
         repository().save(notificationLog);
-
-
         
     }
     public static void sendTalk(Cooked cooked){
@@ -83,7 +79,6 @@ public class NotificationLog  {
         
         notificationLog.setMessage("조리완료");
         repository().save(notificationLog);
-
         
     }
 
