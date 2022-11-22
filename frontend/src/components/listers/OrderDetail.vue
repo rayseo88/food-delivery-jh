@@ -12,7 +12,7 @@
                 <String label="CustomerId" v-model="item.customerId" :editMode="editMode" @change="change" />
             </div>
             <div>
-                <String label="Preference" v-model="item.preference" :editMode="editMode" @change="change" />
+                <String label="Option" v-model="item.option" :editMode="editMode" @change="change" />
             </div>
             <Address offline label="Address" v-model="item.address" :editMode="false" @change="change" />
             <div>

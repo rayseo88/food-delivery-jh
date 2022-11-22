@@ -21,7 +21,7 @@
                                 CustomerId :  {{item.customerId }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
-                                Preference :  {{item.preference }}
+                                Option :  {{item.option }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
                                 Address :  {{item.address }}

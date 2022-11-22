@@ -67,10 +67,7 @@
             headers: 
                 [
                     { text: "id", value: "id" },
-                    { text: "foodId", value: "foodId" },
-                    { text: "customerid", value: "customerid" },
-                    { text: "preference", value: "preference" },
-                    { text: "address", value: "address" },
+                    { text: "orderId", value: "orderId" },
                     { text: "status", value: "status" },
                 ],
             payment : [],
@@ -89,10 +86,7 @@
             this.values = temp.data._embedded.payments;
 
             this.newValue = {
-                'foodId': 0,
-                'customerid': 0,
-                'preference': '',
-                'address': {},
+                'orderId': 0,
                 'status': '',
             }
         },

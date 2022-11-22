@@ -6,15 +6,8 @@
 
         <v-card-text>
             <div>
-                <Number label="FoodId" v-model="item.foodId" :editMode="editMode" @change="change" />
+                <Number label="OrderId" v-model="item.orderId" :editMode="editMode" @change="change" />
             </div>
-            <div>
-                <Number label="Customerid" v-model="item.customerid" :editMode="editMode" @change="change" />
-            </div>
-            <div>
-                <String label="Preference" v-model="item.preference" :editMode="editMode" @change="change" />
-            </div>
-            <Address offline label="Address" v-model="item.address" :editMode="false" @change="change" />
             <div>
                 <String label="Status" v-model="item.status" :editMode="editMode" @change="change" />
             </div>

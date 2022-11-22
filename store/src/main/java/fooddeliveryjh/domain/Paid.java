@@ -9,11 +9,7 @@ import java.util.*;
 public class Paid extends AbstractEvent {
 
     private Long id;
-    private Long foodid;
-    private Long customerid;
-    private String preference;
-    private Object address;
-    private String status;
+    private Long orderid;
 }
 
 

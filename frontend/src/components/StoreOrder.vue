@@ -18,10 +18,10 @@
 
         <v-card-text>
             <String label="FoodId" v-model="value.foodId" :editMode="editMode"/>
-            <String label="Preference" v-model="value.preference" :editMode="editMode"/>
             <Number label="OrderId" v-model="value.orderId" :editMode="editMode"/>
-            <String label="Status" v-model="value.status" :editMode="editMode"/>
+            <String label="Option" v-model="value.option" :editMode="editMode"/>
             <Address offline label="Address" v-model="value.address" :editMode="editMode" @change="change"/>
+            <String label="Status" v-model="value.status" :editMode="editMode"/>
         </v-card-text>
 
         <v-card-actions>

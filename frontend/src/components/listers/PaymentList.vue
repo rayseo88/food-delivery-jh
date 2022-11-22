@@ -12,17 +12,11 @@
                             
                             
                             
-                            
-                            
-                            
                         </v-list-item-title>
 
                         <v-list-item-subtitle style="font-size:25px; font-weight:700;">
                             [ Id :  {{data.id }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ FoodId :  {{data.foodId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ Customerid :  {{data.customerid }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ Preference :  {{data.preference }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ Address :  {{data.address }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ OrderId :  {{data.orderId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ Status :  {{data.status }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </v-list-item-subtitle>
 
@@ -105,10 +99,7 @@
             this.values = temp.data._embedded.payments;
             
             this.newValue = {
-                'foodId': 0,
-                'customerid': 0,
-                'preference': '',
-                'address': {},
+                'orderId': 0,
                 'status': '',
             }
         },

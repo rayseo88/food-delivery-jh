@@ -12,6 +12,7 @@ public class StoreRejected extends AbstractEvent {
     private Long id;
     private Long customerid;
     private Long orderid;
+    private String status;
 
     public StoreRejected(StoreOrder aggregate){
         super(aggregate);

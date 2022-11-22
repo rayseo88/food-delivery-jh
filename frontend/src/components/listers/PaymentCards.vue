@@ -68,10 +68,7 @@
             me.values = temp.data._embedded.payments;
             
             me.newValue = {
-                'foodId': 0,
-                'customerid': 0,
-                'preference': '',
-                'address': {},
+                'orderId': 0,
                 'status': '',
             }
         },

@@ -21,7 +21,7 @@
                             [ Id :  {{data.id }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ FoodId :  {{data.foodId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ CustomerId :  {{data.customerId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ Preference :  {{data.preference }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ Option :  {{data.option }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ Address :  {{data.address }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ Status :  {{data.status }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </v-list-item-subtitle>
@@ -107,7 +107,7 @@
             this.newValue = {
                 'foodId': '',
                 'customerId': '',
-                'preference': '',
+                'option': '',
                 'address': {},
                 'status': '',
             }

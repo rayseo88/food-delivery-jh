@@ -20,10 +20,10 @@
                         <v-list-item-subtitle style="font-size:25px; font-weight:700;">
                             [ Id :  {{data.id }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ FoodId :  {{data.foodId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ Preference :  {{data.preference }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ OrderId :  {{data.orderId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ Status :  {{data.status }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ Option :  {{data.option }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ Address :  {{data.address }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ Status :  {{data.status }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </v-list-item-subtitle>
 
                     </v-list-item-content>
@@ -106,10 +106,10 @@
             
             this.newValue = {
                 'foodId': '',
-                'preference': '',
                 'orderId': 0,
-                'status': '',
+                'option': '',
                 'address': {},
+                'status': '',
             }
         },
         methods: {

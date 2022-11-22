@@ -10,11 +10,7 @@ import lombok.*;
 public class Paid extends AbstractEvent {
 
     private Long id;
-    private Long foodid;
-    private Long customerid;
-    private String preference;
-    private Address address;
-    private String status;
+    private Long orderid;
 
     public Paid(Payment aggregate){
         super(aggregate);

@@ -69,7 +69,7 @@
                     { text: "id", value: "id" },
                     { text: "foodId", value: "foodId" },
                     { text: "customerId", value: "customerId" },
-                    { text: "preference", value: "preference" },
+                    { text: "option", value: "option" },
                     { text: "address", value: "address" },
                     { text: "status", value: "status" },
                 ],
@@ -91,7 +91,7 @@
             this.newValue = {
                 'foodId': '',
                 'customerId': '',
-                'preference': '',
+                'option': '',
                 'address': {},
                 'status': '',
             }
