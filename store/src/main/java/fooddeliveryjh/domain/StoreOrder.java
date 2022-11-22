@@ -7,8 +7,6 @@ import fooddeliveryjh.domain.CookStarted;
 import fooddeliveryjh.StoreApplication;
 import javax.persistence.*;
 
-import org.apache.tomcat.jni.Address;
-
 import java.util.List;
 import lombok.Data;
 import java.util.Date;
@@ -37,7 +35,7 @@ public class StoreOrder  {
     
     @Embedded
     
-    private Address address;
+    private String address;
 
     private String status;
 

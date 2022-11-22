@@ -3,6 +3,9 @@ package fooddeliveryjh.domain;
 import fooddeliveryjh.domain.*;
 import fooddeliveryjh.infra.AbstractEvent;
 import java.util.*;
+
+// import org.apache.tomcat.jni.Address;
+
 import lombok.*;
 
 @Data
@@ -13,7 +16,7 @@ public class OrderPlaced extends AbstractEvent {
     private String foodId;
     private String customerId;
     private String option;
-    private Address address;
+    private String address;
     private String status;
 
     public OrderPlaced(Order aggregate){

@@ -5,7 +5,6 @@ import fooddeliveryjh.domain.OrderCanceled;
 import fooddeliveryjh.FrontApplication;
 import javax.persistence.*;
 
-import org.apache.tomcat.jni.Address;
 
 import java.util.List;
 import lombok.Data;
@@ -30,7 +29,7 @@ public class Order  {
     private String option;
     
     @Embedded
-    private Address address;
+    private String address;
     
     private String status;
 
@@ -65,7 +64,7 @@ public class Order  {
 
     public static void cancel(StoreRejected storeRejected){
 
-        repository().findById(storeRejected.getOrderId()).ifPresent(order->{
+        repository().findById(storeRejected.getOrderid()).ifPresent(order->{
             
             order.setStatus("주문거부됨");
             repository().save(order);
@@ -83,7 +82,7 @@ public class Order  {
             order.setStatus("주문수락됨");
             repository().save(order);
 
-            
+
          });
         
     }

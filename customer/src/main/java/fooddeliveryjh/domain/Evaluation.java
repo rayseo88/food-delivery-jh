@@ -12,38 +12,21 @@ import java.util.Date;
 @Data
 
 public class Evaluation  {
-
-    
+  
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     
     
-    
-    
-    
     private Integer id;
-    
-    
-    
-    
     
     private Long orderid;
     
-    
-    
-    
-    
     private String foodid;
-    
-    
-    
-    
     
     private Integer score;
 
     @PostPersist
     public void onPostPersist(){
-
 
         ScoreAdded scoreAdded = new ScoreAdded(this);
         scoreAdded.publishAfterCommit();
@@ -55,31 +38,18 @@ public class Evaluation  {
         return evaluationRepository;
     }
 
-
-
     public void giveScore(GiveScoreCommand giveScoreCommand){
+        setScore(giveScoreCommand.getScore());
     }
 
     public static void requestScore(Delivered delivered){
 
-        /** Example 1:  new item 
         Evaluation evaluation = new Evaluation();
+        evaluation.setScore(0);
         repository().save(evaluation);
 
-        */
+  
 
-        /** Example 2:  finding and process
-        
-        repository().findById(delivered.get???()).ifPresent(evaluation->{
-            
-            evaluation // do something
-            repository().save(evaluation);
-
-
-         });
-        */
-
-        
     }
 
 
