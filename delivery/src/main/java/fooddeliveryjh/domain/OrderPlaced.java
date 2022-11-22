@@ -12,7 +12,7 @@ public class OrderPlaced extends AbstractEvent {
     private String foodId;
     private String customerId;
     private String option;
-    private Object address;
+    private String address;
     private String status;
 }
 
