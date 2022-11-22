@@ -6,6 +6,9 @@ import fooddeliveryjh.domain.StoreRejected;
 import fooddeliveryjh.domain.CookStarted;
 import fooddeliveryjh.StoreApplication;
 import javax.persistence.*;
+
+import org.apache.tomcat.jni.Address;
+
 import java.util.List;
 import lombok.Data;
 import java.util.Date;
@@ -19,64 +22,25 @@ public class StoreOrder  {
     
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    
-    
-    
-    
+     
     
     private Long id;
     
-    
-    
-    
-    
     private String foodId;
     
-    
-    
-    
-    
-    private Long orderId;
-    
-    
-    
-    
+    private Long orderId; 
     
     private String option;
-    
-    
+
     
     @Embedded
     
     private Address address;
-    
-    
-    
-    
-    
+
     private String status;
 
     @PostPersist
     public void onPostPersist(){
-
-
-        Cooked cooked = new Cooked(this);
-        cooked.publishAfterCommit();
-
-
-
-        StoreAccepted storeAccepted = new StoreAccepted(this);
-        storeAccepted.publishAfterCommit();
-
-
-
-        StoreRejected storeRejected = new StoreRejected(this);
-        storeRejected.publishAfterCommit();
-
-
-
-        CookStarted cookStarted = new CookStarted(this);
-        cookStarted.publishAfterCommit();
 
     }
 
@@ -88,12 +52,24 @@ public class StoreOrder  {
 
 
     public void finishCook(){
+        Cooked cooked = new Cooked(this);
+        cooked.publishAfterCommit();
+        setStatus("조리완료됨");
     }
     public void accept(){
+        StoreAccepted storeAccepted = new StoreAccepted(this);
+        storeAccepted.publishAfterCommit();
+        setStatus("주문수락됨");
     }
     public void reject(){
+        StoreRejected storeRejected = new StoreRejected(this);
+        storeRejected.publishAfterCommit();
+        setStatus("주문거부됨");
     }
     public void startCook(){
+        CookStarted cookStarted = new CookStarted(this);
+        cookStarted.publishAfterCommit();
+        setStatus("조리시작됨");
     }
 
     public static void addCooklist(OrderPlaced orderPlaced){
@@ -103,64 +79,25 @@ public class StoreOrder  {
         StoreOrder.setCustomerID(orderPlaced.getCustomerID());
         StoreOrder.setFoodID(orderPlaced.getFoodID());
         StoreOrder.setOrderID(String.valueOf(orderPlaced.getId()));
-        StoreOrder.setStatus(status: "미결제");
+        StoreOrder.setStatus( "미결제");
         repository().save(storeOrder);
-
-        
-
-        /** Example 2:  finding and process
-        
-        repository().findById(orderPlaced.get???()).ifPresent(storeOrder->{
-            
-            storeOrder // do something
-            repository().save(storeOrder);
-
-
-         });
-        */
-
         
     }
     public static void cancelAlarm(OrderCanceled orderCanceled){
 
-        /** Example 1:  new item 
-        StoreOrder storeOrder = new StoreOrder();
-        repository().save(storeOrder);
-
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(orderCanceled.get???()).ifPresent(storeOrder->{
+        repository().findByOrderId(OrderCanceled.getOrderId()).ifPresent(storeOrder->{
             
-            storeOrder // do something
+            storeOrder.setStatus("주문취소됨");
             repository().save(storeOrder);
 
-
-         });
-        */
-
-        
     }
     public static void updateStatus(Paid paid){
-
-        /** Example 1:  new item 
-        StoreOrder storeOrder = new StoreOrder();
-        repository().save(storeOrder);
-
-        */
-
-        /** Example 2:  finding and process */
-        
         repository().findByOrderId(paid.getOrderId()).ifPresent(storeOrder->{
             
-            storeOrder.setStatus("결재됨") // do something
+            storeOrder.setStatus("결재됨");
             repository().save(storeOrder);
 
-
          });
-        
-
         
     }
 
