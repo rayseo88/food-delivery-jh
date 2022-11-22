@@ -12,28 +12,14 @@ import java.util.Date;
 
 public class NotificationLog  {
 
-    
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     
-    
-    
-    
-    
     private Long id;
     
-    
-    
-    
-    
     private String customerId;
-    
-    
-    
-    
-    
-    private String message;
 
+    private String message;
 
     public static NotificationLogRepository repository(){
         NotificationLogRepository notificationLogRepository = CustomerApplication.applicationContext.getBean(NotificationLogRepository.class);
@@ -41,152 +27,62 @@ public class NotificationLog  {
     }
 
 
-
-
     public static void sendTalk(StoreAccepted storeAccepted){
 
-        /** Example 1:  new item 
         NotificationLog notificationLog = new NotificationLog();
-        repository().save(notificationLog);
-
-        */
-
-        /** Example 2:  finding and process
         
-        repository().findById(storeAccepted.get???()).ifPresent(notificationLog->{
-            
-            notificationLog // do something
-            repository().save(notificationLog);
-
-
-         });
-        */
+        notificationLog.setMessage("주문접수");
+        repository().save(notificationLog);
 
         
     }
     public static void sendTalk(StoreRejected storeRejected){
 
-        /** Example 1:  new item 
         NotificationLog notificationLog = new NotificationLog();
+
+        notificationLog.setMessage("주문거부");
         repository().save(notificationLog);
 
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(storeRejected.get???()).ifPresent(notificationLog->{
-            
-            notificationLog // do something
-            repository().save(notificationLog);
-
-
-         });
-        */
-
-        
     }
     public static void sendTalk(Paid paid){
-
-        /** Example 1:  new item 
         NotificationLog notificationLog = new NotificationLog();
+        
+        notificationLog.setMessage("결제완료");
         repository().save(notificationLog);
 
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(paid.get???()).ifPresent(notificationLog->{
-            
-            notificationLog // do something
-            repository().save(notificationLog);
-
-
-         });
-        */
-
-        
     }
     public static void sendTalk(OrderPlaced orderPlaced){
 
-        /** Example 1:  new item 
         NotificationLog notificationLog = new NotificationLog();
-        repository().save(notificationLog);
-
-        */
-
-        /** Example 2:  finding and process
         
-        repository().findById(orderPlaced.get???()).ifPresent(notificationLog->{
-            
-            notificationLog // do something
-            repository().save(notificationLog);
-
-
-         });
-        */
-
+        notificationLog.setMessage("주문완료");
+        repository().save(notificationLog);
         
     }
     public static void sendTalk(DeliveryStarted deliveryStarted){
 
-        /** Example 1:  new item 
         NotificationLog notificationLog = new NotificationLog();
-        repository().save(notificationLog);
-
-        */
-
-        /** Example 2:  finding and process
         
-        repository().findById(deliveryStarted.get???()).ifPresent(notificationLog->{
-            
-            notificationLog // do something
-            repository().save(notificationLog);
-
-
-         });
-        */
-
+        notificationLog.setMessage("배송시작");
+        repository().save(notificationLog);
         
     }
     public static void sendTalk(CookStarted cookStarted){
 
-        /** Example 1:  new item 
         NotificationLog notificationLog = new NotificationLog();
+        
+        notificationLog.setMessage("조리시작");
         repository().save(notificationLog);
 
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(cookStarted.get???()).ifPresent(notificationLog->{
-            
-            notificationLog // do something
-            repository().save(notificationLog);
-
-
-         });
-        */
 
         
     }
     public static void sendTalk(Cooked cooked){
 
-        /** Example 1:  new item 
         NotificationLog notificationLog = new NotificationLog();
-        repository().save(notificationLog);
-
-        */
-
-        /** Example 2:  finding and process
         
-        repository().findById(cooked.get???()).ifPresent(notificationLog->{
-            
-            notificationLog // do something
-            repository().save(notificationLog);
-
-
-         });
-        */
+        notificationLog.setMessage("조리완료");
+        repository().save(notificationLog);
 
         
     }
