@@ -4,6 +4,9 @@ import fooddeliveryjh.domain.OrderPlaced;
 import fooddeliveryjh.domain.OrderCanceled;
 import fooddeliveryjh.FrontApplication;
 import javax.persistence.*;
+
+import org.apache.tomcat.jni.Address;
+
 import java.util.List;
 import lombok.Data;
 import java.util.Date;
@@ -24,7 +27,7 @@ public class Order  {
     
     private String customerId;
     
-    private String option
+    private String option;
     
     @Embedded
     private Address address;
@@ -34,14 +37,12 @@ public class Order  {
     @PostPersist
     public void onPostPersist(){
 
-
         OrderPlaced orderPlaced = new OrderPlaced(this);
         orderPlaced.publishAfterCommit();
 
     }
     @PostRemove
     public void onPostRemove(){
-
 
         OrderCanceled orderCanceled = new OrderCanceled(this);
         orderCanceled.publishAfterCommit();
@@ -64,65 +65,36 @@ public class Order  {
 
     public static void cancel(StoreRejected storeRejected){
 
-        /** Example 1:  new item 
-        Order order = new Order();
-        repository().save(order);
-
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(storeRejected.get???()).ifPresent(order->{
+        repository().findById(storeRejected.getOrderId()).ifPresent(order->{
             
-            order // do something
+            order.setStatus("주문거부됨");
             repository().save(order);
 
 
          });
-        */
+
 
         
     }
     public static void updateStatus(StoreAccepted storeAccepted){
 
-        /** Example 1:  new item 
-        Order order = new Order();
-        repository().save(order);
-
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(storeAccepted.get???()).ifPresent(order->{
+        repository().findById(storeAccepted.getOrderId()).ifPresent(order->{
             
-            order // do something
+            order.setStatus("주문수락됨");
             repository().save(order);
 
-
+            
          });
-        */
-
         
     }
     public static void updateStatus(StoreRejected storeRejected){
 
-        /** Example 1:  new item 
-        Order order = new Order();
-        repository().save(order);
-
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(storeRejected.get???()).ifPresent(order->{
+        repository().findById(storeRejected.getOrderid()).ifPresent(order->{
             
-            order // do something
+            order.setStatus("주문거부됨");
             repository().save(order);
 
-
          });
-        */
-
         
     }
 

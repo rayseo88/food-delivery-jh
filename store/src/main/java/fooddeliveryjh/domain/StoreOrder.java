@@ -29,6 +29,8 @@ public class StoreOrder  {
     private String foodId;
     
     private Long orderId; 
+
+    private Long customerId; 
     
     private String option;
 
@@ -48,8 +50,6 @@ public class StoreOrder  {
         StoreOrderRepository storeOrderRepository = StoreApplication.applicationContext.getBean(StoreOrderRepository.class);
         return storeOrderRepository;
     }
-
-
 
     public void finishCook(){
         Cooked cooked = new Cooked(this);
@@ -76,23 +76,23 @@ public class StoreOrder  {
 
         /** Example 1:  new item */
         StoreOrder storeOrder = new StoreOrder();
-        StoreOrder.setCustomerID(orderPlaced.getCustomerID());
-        StoreOrder.setFoodID(orderPlaced.getFoodID());
-        StoreOrder.setOrderID(String.valueOf(orderPlaced.getId()));
-        StoreOrder.setStatus( "미결제");
+        storeOrder.setCustomerId(orderPlaced.getCustomerId());
+        storeOrder.setFoodId(orderPlaced.getFoodId());
+        storeOrder.setOrderId(orderPlaced.getId());
+        storeOrder.setStatus( "미결제");
         repository().save(storeOrder);
         
     }
     public static void cancelAlarm(OrderCanceled orderCanceled){
 
-        repository().findByOrderId(OrderCanceled.getOrderId()).ifPresent(storeOrder->{
+        repository().findById(orderCanceled.getId()).ifPresent(storeOrder->{
             
             storeOrder.setStatus("주문취소됨");
             repository().save(storeOrder);
 
     }
     public static void updateStatus(Paid paid){
-        repository().findByOrderId(paid.getOrderId()).ifPresent(storeOrder->{
+        repository().findByOrderId(paid.getId()).ifPresent(storeOrder->{
             
             storeOrder.setStatus("결재됨");
             repository().save(storeOrder);
