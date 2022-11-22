@@ -29,12 +29,6 @@ public class Delivery  {
     @PostPersist
     public void onPostPersist(){
 
-        Delivered delivered = new Delivered(this);
-        delivered.publishAfterCommit();
-
-        DeliveryStarted deliveryStarted = new DeliveryStarted(this);
-        deliveryStarted.publishAfterCommit();
-
     }
     @PrePersist
     public void onPrePersist(){
@@ -46,8 +40,18 @@ public class Delivery  {
     }
 
     public void acceptPick(){
+        
+        DeliveryStarted deliveryStarted = new DeliveryStarted(this);
+        deliveryStarted.publishAfterCommit();
+        deliveryStarted.setStatus("배달시작");     
+
     }
     public void deliveryConfirm(){
+        Delivered delivered = new Delivered(this);
+        delivered.publishAfterCommit();
+        delivered.setStatus("배달완료");
+
+        });
     }
 
     public static void addDeliverylist(OrderPlaced orderPlaced){
@@ -82,7 +86,6 @@ public class Delivery  {
             delivery.setStatus("조리시작");
             repository().save(delivery);
 
-        
     }
 
 
